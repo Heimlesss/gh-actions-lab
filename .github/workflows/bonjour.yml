@@ -14,5 +14,12 @@ jobs:
     steps:
       # Étape 1 — message de bienvenue
       - name: Afficher le message
-        run: echo "Bonjour depuis GitHub Actions ! "
-      # Execuction
+        run: echo "Bonjour depuis GitHub Actions !"
+
+      # Étape 2 — date du jour
+      - name: Afficher la date
+        run: date
+
+      # Étape 3 — acteur du push (utilisateur GitHub qui a déclenché le workflow)
+      - name: Afficher l'acteur
+        run: echo "Déclenché par ${{ github.actor }}"
