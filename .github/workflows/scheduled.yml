@@ -1,0 +1,13 @@
+name: Scheduled
+
+on:
+  schedule:
+    - cron: '0 9 * * 1-5'  # Lundi à vendredi à 09:00 UTC
+  workflow_dispatch:        # Déclenchement manuel possible
+
+jobs:
+  morning-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Message
+        run: echo "Bonjour, il est 9h UTC !"
