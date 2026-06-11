@@ -1,0 +1,26 @@
+# Nom affiché dans l'onglet Actions de GitHub
+name: Check PR
+# Déclencheur : sur quel événement le workflow se lance
+on: 
+    pull_request:
+      branches:
+      - main
+jobs:
+  # Nom du job  check-pr:
+    check-pr:
+    # Machine virtuelle utilisée pour exécuter le job
+      runs-on: ubuntu-latest
+
+    # Liste des étapes du job
+      steps:
+
+        - name: Afficher le numéro de la PR
+          run: echo "PR numéro ${{ github.event.pull_request.number }}"
+
+        - name: Etape réservée à Heimlesss
+          if: github.event.pull_request.user.login == 'Heimlesss'
+          run: echo "Bonjour Heimlesss, ta PR est détectée !"
+
+        - name: Etape pour les autres
+          if: github.event.pull_request.user.login != 'Heimlesss'
+          run: echo "PR ouverte par quelqu'un d'autre"
